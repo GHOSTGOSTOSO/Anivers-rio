@@ -154,7 +154,7 @@
 
       let vol = 0;
       const fade = setInterval(() => {
-        vol += 0.05;
+        vol += 0.025; // fade in de ~4 segundos
         if (vol >= 1) {
           vol = 1;
           clearInterval(fade);
