@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,15 +8,21 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: #fff;
-  color: #000;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #ffffff 0%, #fde4ef 100%);
+  color: #2b2b2b;
+  overflow-x: hidden;
 }
 
-/* TELA 1 */
+/* ---------- TELA 1 (INTRO) ---------- */
 #intro {
   height: 100vh;
-  background: #f7b7d2; /* rosa BB */
+  background: linear-gradient(
+    135deg,
+    #f7b7d2 0%,
+    #fde4ef 50%,
+    #ffffff 100%
+  );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,42 +30,58 @@ body {
   position: fixed;
   width: 100%;
   z-index: 10;
+  transition: opacity 1s ease;
 }
 
 #intro h1 {
-  font-size: 32px;
-  letter-spacing: 4px;
+  font-size: 38px;
+  letter-spacing: 6px;
   font-weight: 300;
+  text-transform: uppercase;
+  color: #2b2b2b;
 }
 
-/* TELA 2 */
+/* ---------- TELA 2 ---------- */
 #main {
   display: none;
-  min-height: 200vh;
-  background: #fff;
+  min-height: 220vh;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fdf0f6 50%,
+    #ffffff 100%
+  );
 }
 
 #main.show {
   display: block;
 }
 
-/* vídeo */
+/* ---------- VÍDEO ---------- */
 #video {
   width: 100%;
   height: 100vh;
   object-fit: cover;
 }
 
-/* conteúdo */
+/* ---------- CONTEÚDO ---------- */
 .content {
-  padding: 80px 20px;
+  padding: 120px 24px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
+/* ---------- TEXTOS ANIMADOS ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: 0.6s ease;
-  margin-bottom: 40px;
+  transform: translateY(50px);
+  transition: 0.8s ease;
+  margin-bottom: 60px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+  text-align: center;
+  color: #3a3a3a;
 }
 
 .reveal.active {
