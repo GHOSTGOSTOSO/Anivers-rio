@@ -10,7 +10,7 @@ start.addEventListener('click', () => {
   main.style.display = 'block';
   document.body.style.overflow = 'auto';
 
-  // música com fade-in 5s
+  // música com fade-in de 5 segundos
   music.volume = 0;
   music.play().catch(() => {});
 
