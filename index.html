@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Surpresa</title>
-  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="lock">
 
-<div class="intro">
+<div class="intro" id="start">
   <h1 class="title">Feliz Aniversário</h1>
   <p class="tap">toque na tela</p>
 </div>
 
-<audio id="bgm" src="assets/musica.mp3"></audio>
+<audio id="bgm" src="assets/musica.mp3" loop></audio>
 
 <script>
+  const start = document.getElementById("start");
   const audio = document.getElementById("bgm");
-  audio.volume = 0;
-  audio.loop = true;
 
-  document.body.addEventListener("click", () => {
+  audio.volume = 0;
+
+  start.addEventListener("click", () => {
     audio.play();
+
     let v = 0;
     const fade = setInterval(() => {
-      if (v < 1) {
-        v += 0.01;
-        audio.volume = v;
-      } else {
+      v += 0.01;
+      audio.volume = v;
+      if (v >= 1) {
         clearInterval(fade);
         window.location.href = "page.html";
       }
