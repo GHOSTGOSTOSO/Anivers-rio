@@ -39,7 +39,7 @@ body {
 /* ===== TELA 2 ===== */
 #main {
   display: none;
-  min-height: 200vh;
+  min-height: 240vh;
   background: linear-gradient(180deg, #ffffff, #fde4ef);
   text-align: center;
   padding-top: 60px;
@@ -48,20 +48,20 @@ body {
 
 .birthday {
   font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
+  font-size: 3.6rem;
   color: #ff6fae;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 video {
   width: 90%;
   max-width: 500px;
-  margin: 30px auto;
+  margin: 30px auto 60px;
   display: block;
   border-radius: 20px;
 }
 
-/* textos animados */
+/* textos */
 .text {
   font-size: 1.3rem;
   color: #5a3a66;
@@ -85,14 +85,16 @@ video {
   transition: 1s ease;
 }
 
+/* ANIME 1 – MAIS PRA CIMA E ESQUERDA */
 .anime.left {
-  left: -40;
-  top: 180px;
+  left: -60px;
+  top: 150px;
 }
 
+/* ANIME 2 */
 .anime.right {
-  right: 0;
-  top: 750px;
+  right: -20px;
+  top: 850px;
 }
 
 .anime.show {
