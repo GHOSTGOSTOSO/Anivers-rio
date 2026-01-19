@@ -2,25 +2,38 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Aniversário</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surpresa</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="lock">
 
-<audio id="music" src="musica.mp3" loop></audio>
+<div class="intro">
+  <h1 class="title">Feliz Aniversário</h1>
+  <p class="tap">toque na tela</p>
+</div>
 
-<section id="start">
-  <h1>Toque na tela</h1>
-</section>
+<audio id="bgm" src="assets/musica.mp3"></audio>
 
-<section id="main">
-  <h2>Feliz Aniversário</h2>
-  <video id="video" src="video.mp4" muted playsinline></video>
-  <p>Esse site é pra você.</p>
-  <p>Com carinho.</p>
-</section>
+<script>
+  const audio = document.getElementById("bgm");
+  audio.volume = 0;
+  audio.loop = true;
 
-<script src="script.js"></script>
+  document.body.addEventListener("click", () => {
+    audio.play();
+    let v = 0;
+    const fade = setInterval(() => {
+      if (v < 1) {
+        v += 0.01;
+        audio.volume = v;
+      } else {
+        clearInterval(fade);
+        window.location.href = "page.html";
+      }
+    }, 50);
+  });
+</script>
+
 </body>
 </html>
