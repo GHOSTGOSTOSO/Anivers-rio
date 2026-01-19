@@ -21,8 +21,12 @@ body {
 
 .start-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 4rem;
-  color: #5a2d44;
+  font-size: 4.8rem;
+  color: #ff6fae;
+  letter-spacing: 3px;
+  text-shadow:
+    0 4px 10px rgba(255, 111, 174, 0.35),
+    0 0 30px rgba(255, 182, 213, 0.6);
   animation: float 3s ease-in-out infinite;
 }
 
@@ -57,11 +61,11 @@ video {
   border-radius: 20px;
 }
 
-/* textos com animação */
+/* textos animados */
 .text {
   font-size: 1.3rem;
   color: #5a3a66;
-  margin: 100px 20px;
+  margin: 120px 20px;
   opacity: 0;
   transform: translateY(40px);
   transition: 0.8s ease;
@@ -83,12 +87,12 @@ video {
 
 .anime.left {
   left: 0;
-  top: 300px;
+  top: 350px;
 }
 
 .anime.right {
   right: 0;
-  top: 700px;
+  top: 750px;
 }
 
 .anime.show {
