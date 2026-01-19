@@ -5,26 +5,48 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
-/* tela 1 */
+/* ===== TELA 1 ===== */
 #start {
   height: 100vh;
-  background: pink;
+  background: linear-gradient(135deg, #ffb6d5, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 
-/* tela 2 */
+.start-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: #5a2d44;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== TELA 2 ===== */
 #main {
   display: none;
   min-height: 200vh;
-  background: white;
+  background: linear-gradient(180deg, #ffffff, #fde4ef);
   text-align: center;
-  padding-top: 50px;
+  padding-top: 60px;
+  position: relative;
+}
+
+.birthday {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  color: #ff6fae;
+  margin-bottom: 30px;
 }
 
 video {
@@ -32,4 +54,44 @@ video {
   max-width: 500px;
   margin: 30px auto;
   display: block;
+  border-radius: 20px;
+}
+
+/* textos com animação */
+.text {
+  font-size: 1.3rem;
+  color: #5a3a66;
+  margin: 100px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* personagens anime */
+.anime {
+  position: absolute;
+  width: 160px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.anime.left {
+  left: 0;
+  top: 300px;
+}
+
+.anime.right {
+  right: 0;
+  top: 700px;
+}
+
+.anime.show {
+  opacity: 1;
+  transform: translateY(0);
 }
