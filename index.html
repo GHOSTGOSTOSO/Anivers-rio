@@ -1,192 +1,44 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Feliz Aniversário</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@200;300;400&display=swap');
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #ffd6e8, #ffffff);
-      color: #333;
-      overflow-x: hidden;
-    }
+  <!-- ÁUDIO -->
+  <audio id="music" src="musica.mp3" loop></audio>
 
-    section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
-    /* ===== TELA INICIAL ===== */
-    #start {
-      height: 100vh;
-      background: linear-gradient(135deg, #ffb6d5, #ffffff);
-      cursor: pointer;
-      position: fixed;
-      inset: 0;
-      z-index: 10;
-      overflow: hidden;
-    }
-
-    .decor {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.4);
-      filter: blur(10px);
-      animation: float 6s infinite ease-in-out;
-    }
-
-    .decor.one { top: 10%; left: 15%; }
-    .decor.two { bottom: 15%; right: 20%; animation-delay: 2s; }
-    .decor.three { top: 40%; right: 10%; animation-delay: 4s; }
-
-    .start-content {
-      text-align: center;
-      z-index: 2;
-    }
-
-    .start-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      color: #5a2d44;
-      margin-bottom: 10px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .start-sub {
-      font-weight: 300;
-      letter-spacing: 2px;
-      opacity: 0.8;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0); }
-    }
-
-    /* ===== TELA PRINCIPAL ===== */
-    #main {
-      display: none;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: 1s ease;
-      background: linear-gradient(180deg, #ffffff, #fdf0f6, #ffffff);
-    }
-
-    #main.show {
-      display: flex;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h1.birthday {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      color: #ff6fae;
-      margin-bottom: 30px;
-    }
-
-    video {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 20px;
-      margin-bottom: 60px;
-      box-shadow: 0 10px 40px rgba(255, 154, 203, 0.4);
-    }
-
-    .text-block {
-      max-width: 700px;
-      font-size: 1.3rem;
-      margin: 80px 0;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: 0.8s ease;
-      text-align: center;
-      color: #5a3a66;
-    }
-
-    .text-block.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style></head>
-<body><audio id="music" src="musica.mp3" loop></audio>
-
-  <!-- TELA INICIAL -->  <section id="start" onclick="startSite()">
+  <!-- TELA INICIAL -->
+  <section id="start" onclick="startSite()">
     <div class="decor one"></div>
     <div class="decor two"></div>
-    <div class="decor three"></div><div class="start-content">
-  <h1 class="start-title">Toque na tela</h1>
-  <span class="start-sub">Uma surpresa foi preparada para você</span>
-</div>
+    <div class="decor three"></div>
 
-  </section>  <!-- TELA PRINCIPAL -->  <section id="main">
-    <h1 class="birthday">Feliz Aniversário</h1><video id="video" src="video.mp4" autoplay muted playsinline></video>
+    <div class="start-content">
+      <h1 class="start-title">Toque na tela</h1>
+      <span class="start-sub">Uma surpresa foi preparada para você</span>
+    </div>
+  </section>
 
-<div class="text-block">Hoje não é só mais um dia… é o dia que o mundo ganhou você.</div>
-<div class="text-block">Bonita, caótica, levemente insuportável, mas essencial.</div>
-<div class="text-block">Que esse novo ano venha com risadas e conquistas.</div>
-<div class="text-block">E se não vier… a gente reclama juntas.</div>
-<div class="text-block">Feliz vida.</div>
+  <!-- TELA PRINCIPAL -->
+  <section id="main">
+    <h1 class="birthday">Feliz Aniversário</h1>
 
-  </section>  <script>
-    document.body.style.overflow = 'hidden';
+    <video id="video" src="video.mp4" autoplay muted playsinline></video>
 
-    function startSite() {
-      const start = document.getElementById('start');
-      const main = document.getElementById('main');
-      const music = document.getElementById('music');
-      const video = document.getElementById('video');
+    <div class="text-block">Hoje não é só mais um dia… é o dia que o mundo ganhou você.</div>
+    <div class="text-block">Bonita, caótica, levemente insuportável, mas essencial.</div>
+    <div class="text-block">Que esse novo ano venha com risadas e conquistas.</div>
+    <div class="text-block">E se não vier… a gente reclama juntas.</div>
+    <div class="text-block">Feliz vida.</div>
+  </section>
 
-      start.style.opacity = '0';
-      start.style.transition = 'opacity 1s ease';
-
-      setTimeout(() => {
-        start.style.display = 'none';
-        main.classList.add('show');
-        document.body.style.overflow = 'auto';
-      }, 1000);
-
-      // Música com fade-in 5s
-      music.volume = 0;
-      music.play().catch(() => {});
-
-      let vol = 0;
-      const fade = setInterval(() => {
-        vol += 0.02;
-        if (vol >= 1) {
-          vol = 1;
-          clearInterval(fade);
-        }
-        music.volume = vol;
-      }, 100);
-
-      // Vídeo
-      video.muted = false;
-      video.play().catch(() => {});
-    }
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('.text-block').forEach(el => observer.observe(el));
-  </script></body>
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
 </html>
