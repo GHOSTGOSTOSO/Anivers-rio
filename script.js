@@ -1,19 +1,21 @@
+document.body.style.overflow = 'hidden';
+
 function startSite() {
-  const intro = document.getElementById('intro');
+  const start = document.getElementById('start');
   const main = document.getElementById('main');
   const music = document.getElementById('music');
+  const video = document.getElementById('video');
 
-  // anima saída da intro
-  intro.style.opacity = '0';
-  intro.style.transition = 'opacity 1s ease';
+  start.style.opacity = '0';
+  start.style.transition = 'opacity 1s ease';
 
   setTimeout(() => {
-    intro.style.display = 'none';
+    start.style.display = 'none';
     main.classList.add('show');
     document.body.style.overflow = 'auto';
   }, 1000);
 
-  // música autoplay + fade-in 5s
+  // música fade-in 5s
   music.volume = 0;
   music.play().catch(() => {});
 
@@ -26,17 +28,19 @@ function startSite() {
     }
     music.volume = vol;
   }, 100);
+
+  video.muted = false;
+  video.play().catch(() => {});
 }
 
-// animação no scroll
-window.addEventListener('scroll', () => {
-  document.querySelectorAll('.reveal').forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      el.classList.add('active');
+// anima texto no scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
     }
   });
-});
+}, { threshold: 0.3 });
 
-// trava scroll no início
-document.body.style.overflow = 'hidden';
+document.querySelectorAll('.text-block')
+  .forEach(el => observer.observe(el));
