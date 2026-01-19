@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@200;300;400&display=swap');
 
 * {
   margin: 0;
@@ -9,82 +8,103 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(180deg, #ffffff 0%, #fde4ef 100%);
-  color: #2b2b2b;
+  background: linear-gradient(180deg, #ffd6e8, #ffffff);
+  color: #333;
   overflow-x: hidden;
 }
 
-/* ---------- TELA 1 (INTRO) ---------- */
-#intro {
+/* TELA INICIAL */
+#start {
   height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #f7b7d2 0%,
-    #fde4ef 50%,
-    #ffffff 100%
-  );
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #ffb6d5, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  position: fixed;
-  width: 100%;
   z-index: 10;
-  transition: opacity 1s ease;
+  overflow: hidden;
 }
 
-#intro h1 {
-  font-size: 38px;
-  letter-spacing: 6px;
+.decor {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  filter: blur(12px);
+  animation: float 6s infinite ease-in-out;
+}
+
+.decor.one { top: 10%; left: 15%; }
+.decor.two { bottom: 15%; right: 20%; animation-delay: 2s; }
+.decor.three { top: 40%; right: 10%; animation-delay: 4s; }
+
+.start-content {
+  text-align: center;
+}
+
+.start-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: #5a2d44;
+  animation: float 3s infinite;
+}
+
+.start-sub {
   font-weight: 300;
-  text-transform: uppercase;
-  color: #2b2b2b;
+  letter-spacing: 2px;
+  opacity: 0.8;
 }
 
-/* ---------- TELA 2 ---------- */
+/* TELA PRINCIPAL */
 #main {
   display: none;
   min-height: 220vh;
-  background: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #fdf0f6 50%,
-    #ffffff 100%
-  );
+  background: linear-gradient(180deg, #ffffff, #fdf0f6, #ffffff);
+  padding: 60px 20px;
 }
 
 #main.show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* ---------- VÍDEO ---------- */
-#video {
+.birthday {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  color: #ff6fae;
+  margin-bottom: 40px;
+}
+
+video {
   width: 100%;
-  height: 100vh;
-  object-fit: cover;
+  max-width: 800px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(255,154,203,0.4);
+  margin-bottom: 80px;
 }
 
-/* ---------- CONTEÚDO ---------- */
-.content {
-  padding: 120px 24px;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-/* ---------- TEXTOS ANIMADOS ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.8s ease;
-  margin-bottom: 60px;
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.8;
+.text-block {
+  max-width: 700px;
   text-align: center;
-  color: #3a3a3a;
+  font-size: 1.3rem;
+  margin: 80px 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+  color: #5a3a66;
 }
 
-.reveal.active {
+.text-block.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
 }
