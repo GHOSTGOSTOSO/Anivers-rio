@@ -1,4 +1,3 @@
-
 document.body.style.overflow = 'hidden';
 
 const start = document.getElementById('start');
@@ -11,18 +10,32 @@ start.addEventListener('click', () => {
   main.style.display = 'block';
   document.body.style.overflow = 'auto';
 
-  // música
+  // música com fade-in 5s
   music.volume = 0;
-  music.play();
+  music.play().catch(() => {});
 
   let vol = 0;
   const fade = setInterval(() => {
     vol += 0.02;
+    if (vol >= 1) {
+      vol = 1;
+      clearInterval(fade);
+    }
     music.volume = vol;
-    if (vol >= 1) clearInterval(fade);
   }, 100);
 
   // vídeo
   video.muted = false;
-  video.play();
+  video.play().catch(() => {});
 });
+
+// animações no scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.text, .anime').forEach(el => observer.observe(el));
