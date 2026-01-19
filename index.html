@@ -4,21 +4,33 @@
   <meta charset="UTF-8">
   <title>Aniversário</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <audio id="music" src="musica.mp3" loop></audio>
 
+<!-- TELA INICIAL -->
 <section id="start">
-  <h1>Toque na tela</h1>
+  <h1 class="start-title">Toque na tela</h1>
 </section>
 
+<!-- TELA PRINCIPAL -->
 <section id="main">
-  <h2>Feliz Aniversário</h2>
+  <h1 class="birthday">Feliz Aniversário</h1>
+
+  <img src="anime1.png" class="anime left">
+  <img src="anime2.png" class="anime right">
+
   <video id="video" src="video.mp4" muted playsinline></video>
-  <p>Esse site é pra você.</p>
-  <p>Com carinho.</p>
+
+  <p class="text">Hoje não é só mais um dia.</p>
+  <p class="text">É o dia em que o mundo ganhou você.</p>
 </section>
 
 <script src="script.js"></script>
