@@ -140,17 +140,38 @@
       const music = document.getElementById('music');
       const video = document.getElementById('video');
 
-      // trava scroll na primeira tela
-      document.body.style.overflow = 'hidden';
+      // garante que o clique funcione
+      start.style.pointerEvents = 'none';
 
+      // anima saída da primeira tela
       start.style.opacity = '0';
       start.style.transition = 'opacity 0.8s ease';
 
       setTimeout(() => {
         start.style.display = 'none';
         main.classList.add('show');
-        document.body.style.overflow = 'auto'; // libera scroll
+        document.body.style.overflow = 'auto'; // libera scroll só depois
       }, 800);
+
+      // música já está autoplay muted, aqui só libera e faz fade
+      music.muted = false;
+      music.volume = 0;
+      music.play().catch(() => {});
+
+      let vol = 0;
+      const fade = setInterval(() => {
+        vol += 0.02; // ~5 segundos
+        if (vol >= 1) {
+          vol = 1;
+          clearInterval(fade);
+        }
+        music.volume = vol;
+      }, 100);
+
+      // vídeo
+      video.muted = false;
+      video.play().catch(() => {});
+    }, 800);
 
       music.muted = false;
       music.volume = 0;
