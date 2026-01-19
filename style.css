@@ -86,8 +86,8 @@ video {
 }
 
 .anime.left {
-  left: 0;
-  top: 350px;
+  left: -40;
+  top: 180px;
 }
 
 .anime.right {
