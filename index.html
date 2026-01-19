@@ -78,10 +78,16 @@
 
     /* TELA PRINCIPAL */
     #main {
-      display: flex;
+      display: none;
       opacity: 0;
       transform: translateY(60px) scale(0.98);
       transition: opacity 1s ease, transform 1s ease;
+    }
+
+    #main.show {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
     #main.show {
@@ -140,18 +146,38 @@
       const music = document.getElementById('music');
       const video = document.getElementById('video');
 
-      // garante que o clique funcione
-      start.style.pointerEvents = 'none';
+      // trava scroll enquanto anima
+      document.body.style.overflow = 'hidden';
 
       // anima saída da primeira tela
-      start.style.opacity = '0';
       start.style.transition = 'opacity 0.8s ease';
+      start.style.opacity = '0';
 
       setTimeout(() => {
         start.style.display = 'none';
         main.classList.add('show');
-        document.body.style.overflow = 'auto'; // libera scroll só depois
+        document.body.style.overflow = 'auto';
       }, 800);
+
+      // música
+      music.muted = false;
+      music.volume = 0;
+      music.play().catch(() => {});
+
+      let vol = 0;
+      const fade = setInterval(() => {
+        vol += 0.02; // ~5 segundos
+        if (vol >= 1) {
+          vol = 1;
+          clearInterval(fade);
+        }
+        music.volume = vol;
+      }, 100);
+
+      // vídeo
+      video.muted = false;
+      video.play().catch(() => {});
+    }, 800);
 
       // música já está autoplay muted, aqui só libera e faz fade
       music.muted = false;
