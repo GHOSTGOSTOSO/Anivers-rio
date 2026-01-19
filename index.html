@@ -30,10 +30,11 @@
     /* TELA INICIAL */
     #start {
       background: linear-gradient(180deg, #ffb6d5, #ffe4f0);
-      color: #4a2f57;
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      height: 100vh;
+      touch-action: manipulation;
     }
 
     .start-overlay {
@@ -112,7 +113,7 @@
       transform: translateY(0);
     }
   </style></head>
-<body>  <!-- ÁUDIO --><audio id="music" src="musica.mp3" autoplay muted loop></audio></audio>
+<body>  <!-- ÁUDIO --><audio id="music" src="musica.mp3" autoplay muted loop></audio></audio></audio>
 
   <!-- TELA TOQUE --><!-- TELA TOQUE -->
 
@@ -139,13 +140,35 @@
       const music = document.getElementById('music');
       const video = document.getElementById('video');
 
+      // trava scroll na primeira tela
+      document.body.style.overflow = 'hidden';
+
       start.style.opacity = '0';
       start.style.transition = 'opacity 0.8s ease';
 
       setTimeout(() => {
         start.style.display = 'none';
         main.classList.add('show');
+        document.body.style.overflow = 'auto'; // libera scroll
       }, 800);
+
+      music.muted = false;
+      music.volume = 0;
+      music.play();
+
+      let vol = 0;
+      const fade = setInterval(() => {
+        vol += 0.02; // ~5s
+        if (vol >= 1) {
+          vol = 1;
+          clearInterval(fade);
+        }
+        music.volume = vol;
+      }, 100);
+
+      video.muted = false;
+      video.play();
+    }, 800);
 
       // Fade in da música
       music.muted = false;
@@ -154,7 +177,7 @@
 
       let vol = 0;
       const fade = setInterval(() => {
-        vol += 0.025; // fade in de ~4 segundos
+        vol += 0.02; // fade in de ~5 segundos
         if (vol >= 1) {
           vol = 1;
           clearInterval(fade);
