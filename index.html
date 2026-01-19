@@ -1,257 +1,31 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Feliz Aniversário</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
-    }
+<!-- TELA 1 -->
+<section id="intro" onclick="startSite()">
+  <h1>TOQUE NA TELA</h1>
+</section>
 
-    body {
-      background: linear-gradient(180deg, #ffd6e8, #ffffff);
-      color: #333;
-      overflow-x: hidden;
-    }
+<!-- TELA 2 -->
+<section id="main">
+  <video id="video" src="assets/video.mp4" autoplay loop playsinline></video>
 
-    section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-    }
+  <div class="content">
+    <p class="reveal">Hoje é um dia especial.</p>
+    <p class="reveal">E esse site é só pra você.</p>
+    <p class="reveal">Feliz aniversário.</p>
+  </div>
+</section>
 
-    /* TELA INICIAL */
-    #start {
-      background: linear-gradient(180deg, #ffb6d5, #ffe4f0);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      height: 100vh;
-      touch-action: manipulation;
-    }
+<audio id="music" src="assets/musica.mp3" loop></audio>
 
-    .start-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.35), transparent 65%);
-      animation: glow 3s infinite alternate;
-    }
-
-    .start-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .start-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.8rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      animation: float 2.5s ease-in-out infinite;
-    }
-
-    .start-sub {
-      font-family: 'Great Vibes', cursive;
-      margin-top: 12px;
-      font-size: 1.2rem;
-      opacity: 0.8;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0); }
-    }
-
-    @keyframes glow {
-      from { opacity: 0.6; }
-      to { opacity: 1; }
-    }
-
-    /* TELA PRINCIPAL */
-    #main {
-      display: none;
-      opacity: 0;
-      transform: translateY(60px) scale(0.98);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    #main.show {
-      display: flex;
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    #main.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    video {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 20px;
-      margin-bottom: 40px;
-      box-shadow: 0 10px 40px rgba(255, 154, 203, 0.4);
-    }
-
-    .text-block {
-      max-width: 700px;
-      font-size: 1.4rem;
-      margin: 80px 0;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: 0.8s ease;
-      text-align: center;
-      color: #5a3a66;
-    }
-
-    .text-block.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style></head>
-<body>  <!-- ÁUDIO --><audio id="music" src="musica.mp3" autoplay muted loop></audio></audio></audio>
-
-  <!-- TELA TOQUE --><!-- TELA TOQUE -->
-
-  <section id="start" onclick="startSite()">
-    <div class="start-overlay"></div>
-    <div class="start-content">
-      <h1 class="start-title">Toque na tela</h1>
-      <span class="start-sub">Uma surpresa foi preparada para você</span>
-    </div>
-  </section>  <!-- CONTEÚDO PRINCIPAL -->  <section id="main"><h1 style="margin-bottom:30px; color:#ff6fae;">Feliz Aniversário 🎂</h1>
-
-<video src="video.mp4" autoplay muted playsinline></video>
-
-<div class="text-block">Hoje não é só mais um dia… é o dia que o mundo ganhou você.</div>
-<div class="text-block">Bonita, caótica, levemente insuportável, mas essencial.</div>
-<div class="text-block">Que esse novo ano venha com risadas, conquistas e menos estresse.</div>
-<div class="text-block">E se não vier… a gente reclama juntas e pronto.</div>
-<div class="text-block">Feliz vida 💕</div>
-
-  </section>  <script>
-    function startSite() {
-      const start = document.getElementById('start');
-      const main = document.getElementById('main');
-      const music = document.getElementById('music');
-      const video = document.getElementById('video');
-
-      // trava scroll enquanto anima
-      document.body.style.overflow = 'hidden';
-
-      // anima saída da primeira tela
-      start.style.transition = 'opacity 0.8s ease';
-      start.style.opacity = '0';
-
-      setTimeout(() => {
-        start.style.display = 'none';
-        main.classList.add('show');
-        document.body.style.overflow = 'auto';
-      }, 800);
-
-      // música
-      music.muted = false;
-      music.volume = 0;
-      music.play().catch(() => {});
-
-      let vol = 0;
-      const fade = setInterval(() => {
-        vol += 0.02; // ~5 segundos
-        if (vol >= 1) {
-          vol = 1;
-          clearInterval(fade);
-        }
-        music.volume = vol;
-      }, 100);
-
-      // vídeo
-      video.muted = false;
-      video.play().catch(() => {});
-    }, 800);
-
-      // música já está autoplay muted, aqui só libera e faz fade
-      music.muted = false;
-      music.volume = 0;
-      music.play().catch(() => {});
-
-      let vol = 0;
-      const fade = setInterval(() => {
-        vol += 0.02; // ~5 segundos
-        if (vol >= 1) {
-          vol = 1;
-          clearInterval(fade);
-        }
-        music.volume = vol;
-      }, 100);
-
-      // vídeo
-      video.muted = false;
-      video.play().catch(() => {});
-    }, 800);
-
-      music.muted = false;
-      music.volume = 0;
-      music.play();
-
-      let vol = 0;
-      const fade = setInterval(() => {
-        vol += 0.02; // ~5s
-        if (vol >= 1) {
-          vol = 1;
-          clearInterval(fade);
-        }
-        music.volume = vol;
-      }, 100);
-
-      video.muted = false;
-      video.play();
-    }, 800);
-
-      // Fade in da música
-      music.muted = false;
-      music.volume = 0;
-      music.play();
-
-      let vol = 0;
-      const fade = setInterval(() => {
-        vol += 0.02; // fade in de ~5 segundos
-        if (vol >= 1) {
-          vol = 1;
-          clearInterval(fade);
-        }
-        music.volume = vol;
-      }, 100);
-
-      video.muted = false;
-      video.play();
-    }, 800);
-
-      const music = document.getElementById('music');
-      music.play();
-
-      const video = document.querySelector('video');
-      video.muted = false;
-      video.play();
-    }
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('.text-block').forEach(el => observer.observe(el));
-  </script></body>
+<script src="script.js"></script>
+</body>
 </html>
