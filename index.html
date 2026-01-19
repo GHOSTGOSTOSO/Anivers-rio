@@ -2,43 +2,25 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Feliz Aniversário</title>
+  <title>Aniversário</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ÁUDIO -->
-  <audio id="music" src="musica.mp3" loop></audio>
+<audio id="music" src="musica.mp3" loop></audio>
 
-  <!-- TELA INICIAL -->
-  <section id="start" onclick="startSite()">
-    <div class="decor one"></div>
-    <div class="decor two"></div>
-    <div class="decor three"></div>
+<section id="start">
+  <h1>Toque na tela</h1>
+</section>
 
-    <div class="start-content">
-      <h1 class="start-title">Toque na tela</h1>
-      <span class="start-sub">Uma surpresa foi preparada para você</span>
-    </div>
-  </section>
+<section id="main">
+  <h2>Feliz Aniversário</h2>
+  <video id="video" src="video.mp4" muted playsinline></video>
+  <p>Esse site é pra você.</p>
+  <p>Com carinho.</p>
+</section>
 
-  <!-- TELA PRINCIPAL -->
-  <section id="main">
-    <h1 class="birthday">Feliz Aniversário</h1>
-
-    <video id="video" src="video.mp4" autoplay muted playsinline></video>
-
-    <div class="text-block">Hoje não é só mais um dia… é o dia que o mundo ganhou você.</div>
-    <div class="text-block">Bonita, caótica, levemente insuportável, mas essencial.</div>
-    <div class="text-block">Que esse novo ano venha com risadas e conquistas.</div>
-    <div class="text-block">E se não vier… a gente reclama juntas.</div>
-    <div class="text-block">Feliz vida.</div>
-  </section>
-
-  <!-- JS -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
