@@ -59,6 +59,7 @@ video {
   margin: 20px auto 60px;
   display: block;
   border-radius: 20px;
+  will-change: transform;
 }
 
 /* TEXTOS */
@@ -85,13 +86,11 @@ video {
   transition: 1s ease;
 }
 
-/* ANIME 1 */
 .anime.left {
   left: -60px;
   top: 150px;
 }
 
-/* ANIME 2 */
 .anime.right {
   right: -20px;
   top: 900px;
@@ -102,7 +101,7 @@ video {
   transform: translateY(0);
 }
 
-/* CONFETES */
+/* CONFETE */
 .confetti {
   position: fixed;
   top: -10px;
