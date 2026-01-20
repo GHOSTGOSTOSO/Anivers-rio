@@ -75,12 +75,20 @@ video {
 }
 
 /* TEXTOS */
+.texts {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
 .texts p {
-  font-size: 1.1rem;
-  margin: 40px 20px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin: 24px 0;
+  color: #333;
   opacity: 0;
-  transform: translateY(30px);
-  transition: 0.6s;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 /* CONFETE */
