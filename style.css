@@ -80,7 +80,7 @@ video {
 /* ANIMES */
 .anime {
   position: absolute;
-  width: 160px;
+  width: 200px;
   opacity: 0;
   transform: translateY(40px);
   transition: 1s ease;
