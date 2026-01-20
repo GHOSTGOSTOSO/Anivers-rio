@@ -12,33 +12,38 @@
 
 <audio id="music" src="musica.mp3" loop></audio>
 
-<!-- TELA 1 -->
 <section id="start">
   <h1 class="start-title">Toque na tela</h1>
 </section>
 
-<!-- TELA 2 -->
 <section id="main">
+
+  <!-- BLOCO DO VÍDEO (isolado) -->
+  <div class="video-wrapper">
+    <video
+      id="video"
+      src="video.mp4"
+      muted
+      playsinline
+      preload="metadata"
+    ></video>
+  </div>
+
   <h1 class="birthday">Feliz Aniversário, Leitinho</h1>
 
   <img src="anime1.png" class="anime left">
   <img src="anime2.png" class="anime right">
 
-  <video
-    id="video"
-    src="video.mp4"
-    muted
-    playsinline
-    preload="metadata"
-    loop
-  ></video>
+  <div class="texts">
+    <p>Hoje é 19/01/2026.</p>
+    <p>O dia em que uma pessoa chatinha nasceu.</p>
+    <p>Mas também engraçada.</p>
+    <p>Muito inteligente.</p>
+    <p>E completamente sem juízo.</p>
+    <p>Anna, você é especial pra caralho.</p>
+    <p>Esse site é só um jeitinho bobo de mostrar isso.</p>
+  </div>
 
-  <p class="text">Hoje é 19/01/2026.</p>
-  <p class="text">O dia em que uma pessoa chatinha nasceu.</p>
-  <p class="text">Mas também engraçada.</p>
-  <p class="text">Inteligente.</p>
-  <p class="text">E completamente sem juízo.</p>
-  <p class="text">Anna, você é especial demais.</p>
 </section>
 
 <script src="script.js"></script>
