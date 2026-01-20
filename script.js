@@ -5,6 +5,7 @@ const main = document.getElementById('main');
 const music = document.getElementById('music');
 const video = document.getElementById('video');
 
+/* CLIQUE INICIAL */
 start.addEventListener('click', () => {
   start.style.display = 'none';
   main.style.display = 'block';
@@ -23,13 +24,9 @@ start.addEventListener('click', () => {
     }
     music.volume = vol;
   }, 100);
-
-  // Vídeo
-  video.muted = false;
-  video.play().catch(() => {});
 });
 
-// Animações no scroll
+/* ANIMAÇÕES NO SCROLL */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -40,7 +37,20 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.text, .anime').forEach(el => observer.observe(el));
 
-// CONFETE NO FINAL
+/* VÍDEO SÓ TOCA QUANDO VISÍVEL */
+const videoObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.5 });
+
+videoObserver.observe(video);
+
+/* CONFETE NO FINAL */
 let confettiDone = false;
 
 window.addEventListener('scroll', () => {
@@ -62,7 +72,6 @@ function launchConfetti() {
     confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
 
     document.body.appendChild(confetti);
-
     setTimeout(() => confetti.remove(), 5000);
   }
 }
