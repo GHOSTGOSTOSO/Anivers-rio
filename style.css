@@ -93,28 +93,10 @@ video {
 
 .anime.right {
   right: -60px;
-  top: 100px;
+  top: 100px; /* AGORA TÁ NO LUGAR CERTO */
 }
 
 .anime.show {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* CONFETE */
-.confetti {
-  position: fixed;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  opacity: 0.9;
-  z-index: 999;
-  animation: fall linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
 }
