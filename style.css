@@ -102,21 +102,19 @@ video {
   transform: translateY(0);
 }
 
-.fancy-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.2rem;
-  color: #ff6fae;
-  text-align: center;
-  margin: 120px 20px;
-  letter-spacing: 2px;
-  text-shadow:
-    0 4px 10px rgba(255, 111, 174, 0.35),
-    0 0 25px rgba(255, 182, 213, 0.6);
-  animation: softFloat 3s ease-in-out infinite;
+.confetti {
+  position: fixed;
+  bottom: -20px;
+  width: 10px;
+  height: 10px;
+  z-index: 9999;
+  opacity: 0.9;
+  animation: confettiUp linear forwards;
 }
 
-@keyframes softFloat {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+@keyframes confettiUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
