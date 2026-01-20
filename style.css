@@ -6,13 +6,13 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-/* ===== TELA 1 ===== */
+/* TELA INICIAL */
 #start {
   height: 100vh;
-  background: linear-gradient(135deg, #ffb6d5, #ffffff);
+  background: linear-gradient(135deg, #ffd1e8, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,100 +21,85 @@ body {
 
 .start-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 4.8rem;
+  font-size: 4.5rem;
   color: #ff6fae;
-  letter-spacing: 3px;
-  text-shadow:
-    0 4px 10px rgba(255, 111, 174, 0.35),
-    0 0 30px rgba(255, 182, 213, 0.6);
+  text-shadow: 0 4px 15px rgba(255, 111, 174, 0.4);
   animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* ===== TELA 2 ===== */
+/* SEGUNDA TELA */
 #main {
   display: none;
-  min-height: 260vh;
-  background: linear-gradient(180deg, #ffffff, #fde4ef);
+  min-height: 200vh;
+  background: linear-gradient(#ffffff, #ffe4f1);
   text-align: center;
   padding-top: 40px;
-  position: relative;
 }
 
 .birthday {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.6rem;
+  font-size: 2.5rem;
   color: #ff6fae;
   margin-bottom: 20px;
 }
 
+/* ANIMES */
+.anime {
+  position: fixed;
+  width: 130px;
+  transition: transform 0.2s;
+}
+
+.anime.left {
+  top: 160px;
+  left: -40px;
+}
+
+.anime.right {
+  top: 360px;
+  right: -20px;
+}
+
+/* VÍDEO */
 video {
   width: 90%;
-  max-width: 520px;
-  margin: 20px auto 60px;
+  max-width: 420px;
+  border-radius: 16px;
+  margin: 30px auto;
   display: block;
-  border-radius: 20px;
   will-change: transform;
 }
 
 /* TEXTOS */
-.text {
-  font-size: 1.3rem;
-  color: #5a3a66;
-  margin: 120px 20px;
+.texts p {
+  font-size: 1.1rem;
+  margin: 40px 20px;
   opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s ease;
-}
-
-.text.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ANIMES */
-.anime {
-  position: absolute;
-  width: 160px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s ease;
-}
-
-.anime.left {
-  left: -60px;
-  top: 150px;
-}
-
-.anime.right {
-  right: -20px;
-  top: 900px;
-}
-
-.anime.show {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateY(30px);
+  transition: 0.6s;
 }
 
 /* CONFETE */
-.confetti {
+.confetti-piece {
   position: fixed;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  opacity: 0.9;
-  z-index: 999;
-  animation: fall linear forwards;
+  bottom: -20px;
+  width: 8px;
+  height: 14px;
+  background: pink;
+  animation: confettiUp 2.5s ease-out forwards;
 }
 
-@keyframes fall {
+@keyframes confettiUp {
+  from {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
   to {
-    transform: translateY(110vh) rotate(360deg);
+    transform: translateY(-120vh) rotate(720deg);
     opacity: 0;
   }
 }
