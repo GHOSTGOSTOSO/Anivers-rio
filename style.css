@@ -53,7 +53,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* VÍDEO */
 video {
   width: 90%;
   max-width: 520px;
@@ -88,14 +87,13 @@ video {
 }
 
 .anime.left {
-  left: -60px;
-  top: 150px;
+  left: -40px;
+  top: 520px;
 }
 
-/* 👉 ANIME 2 NO LUGAR CERTO */
 .anime.right {
-  right: -40px;
-  top: 1200px; /* embaixo, do lado direito do vídeo */
+  right: -60px;
+  top: 100px; /* AGORA TÁ NO LUGAR CERTO */
 }
 
 .anime.show {
